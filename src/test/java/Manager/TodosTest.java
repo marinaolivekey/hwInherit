@@ -159,5 +159,106 @@ class TodosTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void shouldSearchTwoMeetingAndEpic() {
+        SimpleTask simpleTask = new SimpleTask(5, "Выкатка 3й версии приложения");
+
+        String[] subTasks = {"Приложение НетоБанка", "Яйцо", "Хлеб"};
+        Epic epic = new Epic(55, subTasks);
+
+        Meeting meeting = new Meeting(
+                555,
+                "Выкатка 3й версии приложения",
+                "Приложение НетоБанка",
+                "Во вторник после обеда"
+        );
+
+        Meeting meetingMonday = new Meeting(
+                556,
+                "Important Встреча акционеров",
+                "Приложение НетоБанка",
+                "Monday 12:00"
+        );
+
+        Todos todos = new Todos();
+        todos.add(simpleTask);
+        todos.add(epic);
+        todos.add(meeting);
+        todos.add(meetingMonday);
+
+        String query = "Приложение НетоБанка";
+
+
+        Task[] expected = {epic, meeting, meetingMonday};
+        Task[] actual = todos.search(query);
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSearchTwoMeetingEpicSimpleTask() {
+        SimpleTask simpleTask = new SimpleTask(5, "Приложение НетоБанка");
+
+        String[] subTasks = {"Приложение НетоБанка", "Яйцо", "Хлеб"};
+        Epic epic = new Epic(55, subTasks);
+
+        Meeting meeting = new Meeting(
+                555,
+                "Выкатка 3й версии приложения",
+                "Приложение НетоБанка",
+                "Во вторник после обеда"
+        );
+
+        Meeting meetingMonday = new Meeting(
+                556,
+                "Important Встреча акционеров",
+                "Приложение НетоБанка",
+                "Monday 12:00"
+        );
+
+        Todos todos = new Todos();
+        todos.add(simpleTask);
+        todos.add(epic);
+        todos.add(meeting);
+        todos.add(meetingMonday);
+
+        String query = "Приложение НетоБанка";
+
+
+        Task[] expected = {simpleTask, epic, meeting, meetingMonday};
+        Task[] actual = todos.search(query);
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
+    @Test
+    public void shouldSearchNone() {
+        SimpleTask simpleTask = new SimpleTask(5, "Call to parents");
+
+        String[] subTasks = {"Молоко", "Яйцо", "Хлеб"};
+        Epic epic = new Epic(55, subTasks);
+
+        Meeting meeting = new Meeting(
+                555,
+                "Выкатка 3й версии приложения",
+                "Приложение НетоБанка",
+                "Во вторник после обеда"
+        );
+
+        Todos todos = new Todos();
+        todos.add(simpleTask);
+        todos.add(epic);
+        todos.add(meeting);
+
+        String query = "What a wonderful day";
+
+
+        Task[] expected = {};
+        Task[] actual = todos.search(query);
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
 
 }
