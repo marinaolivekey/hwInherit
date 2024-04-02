@@ -1,6 +1,5 @@
 package Domain;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.Objects;
@@ -9,7 +8,7 @@ import java.util.Objects;
 public class Task {
     protected int id;
 
-    public Task (int id) {
+    public Task(int id) {
         this.id = id;
     }
 /*

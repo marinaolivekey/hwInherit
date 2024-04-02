@@ -3,8 +3,6 @@ package Domain;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class TaskTest {
 
     //  Meeting
@@ -56,8 +54,8 @@ class TaskTest {
 
     @Test
     public void matchesInEpicIfNone() {
-        String[] subtasks = { "Молоко", "Яйца", "Хлеб" };
-        Epic epic = new Epic (56, subtasks);
+        String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
+        Epic epic = new Epic(56, subtasks);
 
         String query = "Приложение НетоБанка";
         boolean actual = epic.matches(query);
@@ -66,8 +64,8 @@ class TaskTest {
 
     @Test
     public void matchesInEpic() {
-        String[] subtasks = { "Молоко", "Яйца", "Хлеб" };
-        Epic epic = new Epic (56, subtasks);
+        String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
+        Epic epic = new Epic(56, subtasks);
 
         String query = "Молоко";
         boolean actual = epic.matches(query);

@@ -1,13 +1,11 @@
 package Manager;
+
 import Domain.Epic;
 import Domain.Meeting;
-import Domain.Task;
-
 import Domain.SimpleTask;
+import Domain.Task;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class TodosTest {
 
@@ -16,7 +14,7 @@ class TodosTest {
         SimpleTask simpleTask = new SimpleTask(5, "Call to parents");
 
         String[] subTasks = {"Молоко", "Яйцо", "Хлеб"};
-        Epic epic = new Epic (55, subTasks);
+        Epic epic = new Epic(55, subTasks);
 
         Meeting meeting = new Meeting(
                 555,
@@ -54,7 +52,7 @@ class TodosTest {
         SimpleTask simpleTask = new SimpleTask(5, "Call to parents");
 
         String[] subTasks = {"Молоко", "Яйцо", "Хлеб"};
-        Epic epic = new Epic (55, subTasks);
+        Epic epic = new Epic(55, subTasks);
 
         Meeting meeting = new Meeting(
                 555,
@@ -71,7 +69,7 @@ class TodosTest {
         String query = "Выкатка 3й версии приложения";
 
 
-        Task[] expected ={meeting};
+        Task[] expected = {meeting};
         Task[] actual = todos.search(query);
 
         Assertions.assertArrayEquals(expected, actual);
@@ -82,7 +80,7 @@ class TodosTest {
         SimpleTask simpleTask = new SimpleTask(5, "Call to parents");
 
         String[] subTasks = {"Молоко", "Яйцо", "Хлеб"};
-        Epic epic = new Epic (55, subTasks);
+        Epic epic = new Epic(55, subTasks);
 
         Meeting meeting = new Meeting(
                 555,
@@ -99,7 +97,7 @@ class TodosTest {
         String query = "Яйцо";
 
 
-        Task[] expected ={epic};
+        Task[] expected = {epic};
         Task[] actual = todos.search(query);
 
         Assertions.assertArrayEquals(expected, actual);
@@ -110,7 +108,7 @@ class TodosTest {
         SimpleTask simpleTask = new SimpleTask(5, "Call to parents");
 
         String[] subTasks = {"Молоко", "Яйцо", "Хлеб"};
-        Epic epic = new Epic (55, subTasks);
+        Epic epic = new Epic(55, subTasks);
 
         Meeting meeting = new Meeting(
                 555,
@@ -127,7 +125,7 @@ class TodosTest {
         String query = "Call to parents";
 
 
-        Task[] expected ={simpleTask};
+        Task[] expected = {simpleTask};
         Task[] actual = todos.search(query);
 
         Assertions.assertArrayEquals(expected, actual);
@@ -138,7 +136,7 @@ class TodosTest {
         SimpleTask simpleTask = new SimpleTask(5, "Выкатка 3й версии приложения");
 
         String[] subTasks = {"Молоко", "Яйцо", "Хлеб"};
-        Epic epic = new Epic (55, subTasks);
+        Epic epic = new Epic(55, subTasks);
 
         Meeting meeting = new Meeting(
                 555,
@@ -155,12 +153,11 @@ class TodosTest {
         String query = "Выкатка 3й версии приложения";
 
 
-        Task[] expected ={simpleTask, meeting};
+        Task[] expected = {simpleTask, meeting};
         Task[] actual = todos.search(query);
 
         Assertions.assertArrayEquals(expected, actual);
     }
-
 
 
 }

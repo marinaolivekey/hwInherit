@@ -1,4 +1,5 @@
 package Manager;
+
 import Domain.Task;
 
 public class Todos {
@@ -8,17 +9,17 @@ public class Todos {
     // Вспомогательный метод добавления задачи в массив задач
     private Task[] addToArray(Task[] current, Task task) {
 
-        Task[] tmp = new Task[current.length+1];
+        Task[] tmp = new Task[current.length + 1];
         for (int i = 0; i < current.length; i++) {
             tmp[i] = current[i];
         }
-        tmp[tmp.length-1] = task;
+        tmp[tmp.length - 1] = task;
         return tmp;
     }
 
     // Метод добавления задачи в список дел
 
-    public void add (Task task) {
+    public void add(Task task) {
         tasks = addToArray(tasks, task);
     }
 
